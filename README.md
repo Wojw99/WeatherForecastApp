@@ -1,2 +1,2 @@
 # WeatherForecastApp
-Weathe rForecast App
+Weather Forecast App

@@ -120,5 +120,8 @@
   <ItemGroup>
     <Folder Include="Controls\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AAA.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

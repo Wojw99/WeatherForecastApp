@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WeatherForecastApp.Class;
 
 namespace WeatherForecastApp
 {
@@ -23,6 +12,7 @@ namespace WeatherForecastApp
         public MainWindow()
         {
             InitializeComponent();
+            //string json = JsonConvert.SerializeObject();
         }
 
         private void ButtonToday_Click(object sender, RoutedEventArgs e)
@@ -39,6 +29,14 @@ namespace WeatherForecastApp
             panelWeek.Visibility = Visibility.Visible;
             buttonToday.IsEnabled = true;
             buttonWeek.IsEnabled = false;
+        }
+
+        private async void buttonCheck_Click(object sender, RoutedEventArgs e)
+        {
+            var json = await WeatherApi.LoadWeather("Gliwice", 55.8, 14.9);
+            var root = JsonConvert.DeserializeObject<WeatherMap>(json);
+
+            textBoxCity.Text = $"{root.daily[0].weather[0].description} : {root.daily[0].temp.day - 272.15}";
         }
     }
 }

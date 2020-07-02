@@ -8,9 +8,9 @@
         Title="WeatherForecast" Height="700" Width="500" FontSize="15" FontFamily="Lato" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         
         <!-- Row 0 -->
@@ -18,13 +18,17 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             
-            <!-- Column 0 -->
+            <!-- Row 0 -->
             <TextBlock Grid.Row="0" Text="City:" TextAlignment="Center" VerticalAlignment="Bottom"/>
             
-            <!-- Column 1 -->
-            <TextBox Grid.Row="1" VerticalAlignment="Center" Padding="5" MaxWidth="250"/>
+            <!-- Row 1 -->
+            <TextBox x:Name="textBoxCity" Grid.Row="1" VerticalAlignment="Center" Padding="5" MaxWidth="250"/>
+            
+            <!-- Row 2 -->
+            <Button x:Name="buttonCheck" Content="Check" Grid.Row="2" Width="150" Height="25" Click="buttonCheck_Click"/>
         </Grid>
 
         <!-- Row 1 -->

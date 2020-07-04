@@ -61,9 +61,12 @@
     </ApplicationDefinition>
     <Compile Include="Class\Daily.cs" />
     <Compile Include="Class\FeelsLike.cs" />
+    <Compile Include="Class\Hourly.cs" />
+    <Compile Include="Class\Rain.cs" />
     <Compile Include="Class\Temp.cs" />
     <Compile Include="Class\Weather.cs" />
     <Compile Include="Class\WeatherApi.cs" />
+    <Compile Include="Class\WeatherHourlyMap.cs" />
     <Compile Include="Class\WeatherMap.cs" />
     <Compile Include="OneDay.xaml.cs">
       <DependentUpon>OneDay.xaml</DependentUpon>

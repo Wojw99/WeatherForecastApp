@@ -33,10 +33,11 @@ namespace WeatherForecastApp
 
         private async void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
-            var json = await WeatherApi.LoadWeather("Gliwice", 55.8, 14.9);
-            var root = JsonConvert.DeserializeObject<WeatherMap>(json);
+            var json = await WeatherApi.LoadHourlyForecast(19.01, 50.16);
+            var root = JsonConvert.DeserializeObject<WeatherHourlyMap>(json);
 
-            textBoxCity.Text = $"{root.daily[0].weather[0].description} : {root.daily[0].temp.day - 272.15}";
+            //textBoxCity.Text = $"{root.daily[0].weather[0].description} : {root.daily[0].temp.day - 272.15}";
+            textBoxCity.Text = $"{root.hourly[0].weather[0].description} : {root.hourly[0].temp - 272.15}";
         }
     }
 }

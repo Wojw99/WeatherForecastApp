@@ -36,9 +36,9 @@ namespace WeatherForecastApp
             var cityName = textBoxCity.Text;
             var location = await GeoLocationApi.LoadLocation(cityName);
             var json = await WeatherApi.LoadDailyForecast(location.Latitude, location.Longitude);
-            var root = JsonConvert.DeserializeObject<WeatherMap>(json);
+            var weather = JsonConvert.DeserializeObject<WeatherMap>(json);
             
-            textBoxCity.Text = $"{location.City} ({location.Latitude}, {location.Longitude}) : {root.daily[0].weather[0].description} : {root.daily[0].temp.day - 272.15}";
+            textBoxCity.Text = $"{location.City} ({location.Latitude}, {location.Longitude}) : {weather.daily[0].weather[0].description} : {weather.daily[0].temp.day - 272.15}";
         }
     }
 }

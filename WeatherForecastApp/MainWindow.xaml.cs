@@ -33,11 +33,12 @@ namespace WeatherForecastApp
 
         private async void buttonCheck_Click(object sender, RoutedEventArgs e)
         {
-            var json = await WeatherApi.LoadHourlyForecast(19.01, 50.16);
-            var root = JsonConvert.DeserializeObject<WeatherHourlyMap>(json);
-
-            //textBoxCity.Text = $"{root.daily[0].weather[0].description} : {root.daily[0].temp.day - 272.15}";
-            textBoxCity.Text = $"{root.hourly[0].weather[0].description} : {root.hourly[0].temp - 272.15}";
+            var cityName = textBoxCity.Text;
+            var location = await GeoLocationApi.LoadLocation(cityName);
+            var json = await WeatherApi.LoadDailyForecast(location.Latitude, location.Longitude);
+            var root = JsonConvert.DeserializeObject<WeatherMap>(json);
+            
+            textBoxCity.Text = $"{location.City} ({location.Latitude}, {location.Longitude}) : {root.daily[0].weather[0].description} : {root.daily[0].temp.day - 272.15}";
         }
     }
 }

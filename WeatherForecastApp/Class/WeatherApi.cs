@@ -11,9 +11,9 @@ namespace WeatherForecastApp.Class
     {
         private static readonly string apiKey = "54443f860b9257ccbab2a8815b5f3e0f";
 
-        public static async Task<String> LoadDailyForecast(double lon, double lat)
+        public static async Task<String> LoadDailyForecast(double lat, double lng)
         {
-            string urlDaily = $"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly&appid={apiKey}";
+            string urlDaily = $"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lng}&exclude=current,minutely,hourly&appid={apiKey}";
 
             using (HttpClient client = new HttpClient())
             {

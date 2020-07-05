@@ -61,7 +61,9 @@
     </ApplicationDefinition>
     <Compile Include="Class\Daily.cs" />
     <Compile Include="Class\FeelsLike.cs" />
+    <Compile Include="Class\GeoLocationApi.cs" />
     <Compile Include="Class\Hourly.cs" />
+    <Compile Include="Class\Location.cs" />
     <Compile Include="Class\Rain.cs" />
     <Compile Include="Class\Temp.cs" />
     <Compile Include="Class\Weather.cs" />

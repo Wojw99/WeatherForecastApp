@@ -19,6 +19,11 @@ namespace WeatherForecastApp.Class
         {
             string urlDaily = $"https://api.opencagedata.com/geocode/v1/json?q={city}&key={apiKey}";
 
+            if(Regex.IsMatch(city, @"\d"))
+            {
+                throw new Exception("The city doesn't exists!");
+            }
+
             using (HttpClient client = new HttpClient())
             {
                 using (HttpResponseMessage response = await client.GetAsync(urlDaily))

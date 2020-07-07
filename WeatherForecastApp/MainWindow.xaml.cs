@@ -1,5 +1,8 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using WeatherForecastApp.Class;
 
 namespace WeatherForecastApp
@@ -12,7 +15,7 @@ namespace WeatherForecastApp
         public MainWindow()
         {
             InitializeComponent();
-            //string json = JsonConvert.SerializeObject();
+            //img.Source = IconManager.GetIconSource("Clear");
         }
 
         private void ButtonToday_Click(object sender, RoutedEventArgs e)

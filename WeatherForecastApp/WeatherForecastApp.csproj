@@ -63,6 +63,7 @@
     <Compile Include="Class\FeelsLike.cs" />
     <Compile Include="Class\GeoLocationApi.cs" />
     <Compile Include="Class\Hourly.cs" />
+    <Compile Include="Class\IconManager.cs" />
     <Compile Include="Class\Location.cs" />
     <Compile Include="Class\Rain.cs" />
     <Compile Include="Class\Temp.cs" />
@@ -136,6 +137,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\AAA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cloud.png" />
+    <Resource Include="Images\rain.png" />
+    <Resource Include="Images\sun.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

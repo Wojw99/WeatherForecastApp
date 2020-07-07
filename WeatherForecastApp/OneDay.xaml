@@ -55,7 +55,7 @@
 
         <Image Grid.Column="7" x:Name="img"  Margin="0,10">
             <Image.Source>
-                <BitmapImage  UriSource="/images/AAA.jpg" />
+                <BitmapImage UriSource="/images/AAA.jpg" />
             </Image.Source>
         </Image>
 

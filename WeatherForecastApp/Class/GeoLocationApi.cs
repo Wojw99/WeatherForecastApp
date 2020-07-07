@@ -44,6 +44,9 @@ namespace WeatherForecastApp.Class
             int index = json.IndexOf(name);
             string number = "";
 
+            json = json.Replace("u00b0", "");
+            //Debug.WriteLine(json);
+
             for (int i = index; i < json.Length; i++)
             {
                 if (Regex.IsMatch(json[i].ToString(), @"\d"))
@@ -51,6 +54,10 @@ namespace WeatherForecastApp.Class
                     number += json[i];
                 }
                 else if (json[i] == '\\')
+                {
+                    number += ".";
+                }
+                else if (json[i] == '\'')
                 {
                     return number;
                 }

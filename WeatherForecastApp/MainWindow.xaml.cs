@@ -47,7 +47,7 @@ namespace WeatherForecastApp
             var json = await WeatherApi.LoadDailyForecast(location.Latitude, location.Longitude);
             var weather = JsonConvert.DeserializeObject<WeatherMap>(json);
 
-            textBoxCity.Text = $"{location.City} ({location.Latitude}, {location.Longitude}) : {weather.daily[0].weather[0].description} : {weather.daily[0].temp.day - 272.15}";
+            textBoxCity.Text = "";
 
             IEnumerator<OneDay> days = FindVisualChildren<OneDay>(panelWeek).GetEnumerator();
 
@@ -59,9 +59,7 @@ namespace WeatherForecastApp
                 days.Current.txtTemperature.Content = Math.Round((weather.daily[i].temp.day - 272.15), 2) + "° C";
                 days.Current.txtPressure.Content = weather.daily[i].pressure + "hPA";
                 days.Current.txtWind.Content = "wiatr " + weather.daily[i].wind_speed + "km/h"; //czy to nie są mph?
-                //tu jakoś te przypisywanie obrazków rozwiązać ale nie wiem od czego one zależeć będą
-                string uriImg = "AAA.jpg";
-                days.Current.img.Source = new BitmapImage(new Uri("Images/" + uriImg, UriKind.Relative));
+                days.Current.img.Source = IconManager.GetIconSource(weather.daily[i].weather[0].main);
             }
             buttonCheck.IsEnabled = true;
         }

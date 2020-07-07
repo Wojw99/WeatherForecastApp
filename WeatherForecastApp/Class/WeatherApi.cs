@@ -33,9 +33,9 @@ namespace WeatherForecastApp.Class
             }
         }
 
-        public static async Task<String> LoadHourlyForecast(double lon, double lat)
+        public static async Task<String> LoadHourlyForecast(double lat, double lng)
         {
-            string urlHourly = $"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,current,daily&appid={apiKey}";
+            string urlHourly = $"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lng}&exclude=minutely,current,daily&appid={apiKey}";
 
             using (HttpClient client = new HttpClient())
             {

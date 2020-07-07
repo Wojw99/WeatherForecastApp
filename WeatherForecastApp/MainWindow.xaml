@@ -35,13 +35,13 @@
         <!-- Row 1 -->
         <UniformGrid Grid.Row="1" Columns="2" Rows="1" Background="White">
             <Button x:Name="buttonToday" IsEnabled="False" Click="ButtonToday_Click" Content="Today" Style="{StaticResource ButtonMain}" Margin="5" HorizontalAlignment="Right"/>
-            <Button x:Name="buttonWeek" Click="ButtonWeek_Click" Content="Week" Style="{StaticResource ButtonMain}" Margin="5" HorizontalAlignment="Left"/>
+            <Button x:Name="buttonWeek" IsEnabled="False" Click="ButtonWeek_Click" Content="Week" Style="{StaticResource ButtonMain}" Margin="5" HorizontalAlignment="Left"/>
         </UniformGrid>
   
         <!-- Row 2 -->
         <Border Grid.Row="2" Style="{StaticResource BorderGray}">
             <Grid>
-                <local:TodayPanel x:Name="panelToday" Visibility="Visible"/>
+                <local:TodayPanel x:Name="panelToday" Visibility="Hidden"/>
                 <local:WeekPanel x:Name="panelWeek" Visibility="Hidden"/>
             </Grid>
         </Border>

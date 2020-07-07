@@ -15,6 +15,8 @@ namespace WeatherForecastApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool isFirst = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,15 +43,17 @@ namespace WeatherForecastApp
         {
             buttonCheck.IsEnabled = false;
             var cityName = textBoxCity.Text;
-            string tmp = textBoxCity.Text;
             textBoxCity.Text = "wyszukuję dla: " + textBoxCity.Text + " proszę czekać";
             var location = await GeoLocationApi.LoadLocation(cityName);
             var json = await WeatherApi.LoadDailyForecast(location.Latitude, location.Longitude);
+            var hourlyJson = await WeatherApi.LoadHourlyForecast(location.Latitude, location.Longitude);
             var weather = JsonConvert.DeserializeObject<WeatherMap>(json);
+            var hourlyWeather = JsonConvert.DeserializeObject<WeatherHourlyMap>(hourlyJson);
 
-            textBoxCity.Text = "";
+            textBoxCity.Text = cityName;
 
-            IEnumerator<OneDay> days = FindVisualChildren<OneDay>(panelWeek).GetEnumerator();
+            //IEnumerator<OneDay> days = FindVisualChildren<OneDay>(panelWeek).GetEnumerator();
+            IEnumerator<OneDay> days = FindLogicalChildren<OneDay>(panelWeek).GetEnumerator();
 
             for (int i = 0; i < 7; i++)
             {
@@ -61,27 +65,69 @@ namespace WeatherForecastApp
                 days.Current.txtWind.Content = "wiatr " + weather.daily[i].wind_speed + "km/h"; //czy to nie są mph?
                 days.Current.img.Source = IconManager.GetIconSource(weather.daily[i].weather[0].main);
             }
+            //IEnumerator<OneHour> hours = FindVisualChildren<OneHour>(panelToday).GetEnumerator();
+            IEnumerator<OneHour> hours = FindLogicalChildren<OneHour>(panelToday).GetEnumerator();
+
+            for (int i = 0; i < 24; i++)
+            {
+                hours.MoveNext();
+                DateTime date = DateTime.UtcNow.AddHours(i);
+                hours.Current.txtHour.Content = $"{date.ToLocalTime().Hour}:00";
+                hours.Current.txtTemperature.Content = Math.Round((hourlyWeather.hourly[i].temp - 272.15), 2) + "° C";
+                hours.Current.txtPressure.Content = hourlyWeather.hourly[i].pressure + "hPA";
+                hours.Current.txtWind.Content = "wiatr " + hourlyWeather.hourly[i].wind_speed + "km/h"; //czy to nie są mph?
+                hours.Current.img.Source = IconManager.GetIconSource(hourlyWeather.hourly[i].weather[0].main);
+            }
+            if (isFirst)
+            {
+                buttonToday.IsEnabled = true;
+                buttonWeek.IsEnabled = true;
+            }
             buttonCheck.IsEnabled = true;
+            isFirst = false;
         }
 
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        public static IEnumerable<T> FindLogicalChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
             {
-                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                foreach (object rawChild in LogicalTreeHelper.GetChildren(depObj))
                 {
-                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
-                    if (child != null && child is T)
+                    if (rawChild is DependencyObject)
                     {
-                        yield return (T)child;
-                    }
+                        DependencyObject child = (DependencyObject)rawChild;
+                        if (child is T)
+                        {
+                            yield return (T)child;
+                        }
 
-                    foreach (T childOfChild in FindVisualChildren<T>(child))
-                    {
-                        yield return childOfChild;
+                        foreach (T childOfChild in FindLogicalChildren<T>(child))
+                        {
+                            yield return childOfChild;
+                        }
                     }
                 }
             }
         }
+
+        //public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        //{
+        //    if (depObj != null)
+        //    {
+        //        for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+        //        {
+        //            DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+        //            if (child != null && child is T)
+        //            {
+        //                yield return (T)child;
+        //            }
+
+        //            foreach (T childOfChild in FindVisualChildren<T>(child))
+        //            {
+        //                yield return childOfChild;
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

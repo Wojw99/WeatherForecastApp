@@ -15,7 +15,7 @@ namespace WeatherForecastApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool isFirst = true;
+        bool isFirst = true; //jeśli zmienna jest ustawiona na true, oznacza to, że jest to pierwsze pobranie danych
 
         public MainWindow()
         {
@@ -98,9 +98,9 @@ namespace WeatherForecastApp
             isFirst = false;
         }
 
+        //metoda odpowiedzialna za wyświetlanie informacji w TodayPanel, godzina po godzinie
         private void UpdateHours(WeatherHourlyMap hourlyWeather)
         {
-            //IEnumerator<OneHour> hours = FindVisualChildren<OneHour>(panelToday).GetEnumerator();
             IEnumerator<OneHour> hours = FindLogicalChildren<OneHour>(panelToday).GetEnumerator();
 
             for (int i = 0; i < 24; i++)
@@ -115,9 +115,9 @@ namespace WeatherForecastApp
             }
         }
 
+        //metoda odpowiedzialna za wyświetlanie informacji w WeekPanel, dzień po dniu
         private void UpdateDays(WeatherMap weather)
         {
-            //IEnumerator<OneDay> days = FindVisualChildren<OneDay>(panelWeek).GetEnumerator();
             IEnumerator<OneDay> days = FindLogicalChildren<OneDay>(panelWeek).GetEnumerator();
 
             for (int i = 0; i < 7; i++)
@@ -132,6 +132,7 @@ namespace WeatherForecastApp
             }
         }
 
+        //metoda służąca do zwracaniu wszystkich kontrolek danego typu w danym panelu
         public static IEnumerable<T> FindLogicalChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)

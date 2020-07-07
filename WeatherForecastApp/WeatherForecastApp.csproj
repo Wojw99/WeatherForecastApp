@@ -74,6 +74,9 @@
     <Compile Include="OneDay.xaml.cs">
       <DependentUpon>OneDay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OneHour.xaml.cs">
+      <DependentUpon>OneHour.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WeekPanel.xaml.cs">
       <DependentUpon>WeekPanel.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="OneDay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OneHour.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

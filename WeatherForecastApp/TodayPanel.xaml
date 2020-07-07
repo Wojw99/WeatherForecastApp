@@ -7,6 +7,86 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <Grid>
-        <TextBlock Text="One Day"/>
+        <ListBox>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Height" Value="50" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <!--#region ListBoxItems-->
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <local:OneHour/>
+            </ListBoxItem>
+            <!--#endregion-->
+        </ListBox>
     </Grid>
 </UserControl>

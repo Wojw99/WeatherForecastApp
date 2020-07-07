@@ -110,7 +110,7 @@ namespace WeatherForecastApp
                 hours.Current.txtHour.Content = $"{date.ToLocalTime().Hour}:00";
                 hours.Current.txtTemperature.Content = Math.Round((hourlyWeather.hourly[i].temp - 272.15), 2) + "° C";
                 hours.Current.txtPressure.Content = hourlyWeather.hourly[i].pressure + "hPA";
-                hours.Current.txtWind.Content = "wiatr " + hourlyWeather.hourly[i].wind_speed + "km/h"; //czy to nie są mph?
+                hours.Current.txtWind.Content = "wiatr " + hourlyWeather.hourly[i].wind_speed + "km/h";
                 hours.Current.img.Source = IconManager.GetIconSource(hourlyWeather.hourly[i].weather[0].main);
             }
         }
@@ -127,7 +127,7 @@ namespace WeatherForecastApp
                 days.Current.txtDate.Content = $"{date.Day}.{date.Month}.{date.Year}";
                 days.Current.txtTemperature.Content = Math.Round((weather.daily[i].temp.day - 272.15), 2) + "° C";
                 days.Current.txtPressure.Content = weather.daily[i].pressure + "hPA";
-                days.Current.txtWind.Content = "wiatr " + weather.daily[i].wind_speed + "km/h"; //czy to nie są mph?
+                days.Current.txtWind.Content = "wiatr " + weather.daily[i].wind_speed + "km/h";
                 days.Current.img.Source = IconManager.GetIconSource(weather.daily[i].weather[0].main);
             }
         }

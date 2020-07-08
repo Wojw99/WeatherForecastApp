@@ -19,7 +19,7 @@ namespace WeatherForecastApp.Properties {
     // przez narzędzie, takie jak ResGen lub Visual Studio.
     // Aby dodać lub usunąć składową, edytuj plik ResX, a następnie ponownie uruchom narzędzie ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,114 @@ namespace WeatherForecastApp.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu °C.
+        /// </summary>
+        internal static string celsius_sign {
+            get {
+                return ResourceManager.GetString("celsius_sign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu 3d960304a58a466babdce85b27d3a4df.
+        /// </summary>
+        internal static string Geolocation_API_key {
+            get {
+                return ResourceManager.GetString("Geolocation_API_key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu hPA.
+        /// </summary>
+        internal static string hPa_sign {
+            get {
+                return ResourceManager.GetString("hPa_sign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu lat.
+        /// </summary>
+        internal static string lat {
+            get {
+                return ResourceManager.GetString("lat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu lng.
+        /// </summary>
+        internal static string lng {
+            get {
+                return ResourceManager.GetString("lng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Podane miasto nie istnieje!.
+        /// </summary>
+        internal static string message_city_not_exist {
+            get {
+                return ResourceManager.GetString("message_city_not_exist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nie znaleziono.
+        /// </summary>
+        internal static string message_not_found {
+            get {
+                return ResourceManager.GetString("message_not_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu m/s.
+        /// </summary>
+        internal static string ms_sign {
+            get {
+                return ResourceManager.GetString("ms_sign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyszukuję dla:.
+        /// </summary>
+        internal static string search_for {
+            get {
+                return ResourceManager.GetString("search_for", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu proszę czekać.
+        /// </summary>
+        internal static string wait_please {
+            get {
+                return ResourceManager.GetString("wait_please", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu 54443f860b9257ccbab2a8815b5f3e0f.
+        /// </summary>
+        internal static string Weather_API_key {
+            get {
+                return ResourceManager.GetString("Weather_API_key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu wiatr.
+        /// </summary>
+        internal static string wind {
+            get {
+                return ResourceManager.GetString("wind", resourceCulture);
             }
         }
     }

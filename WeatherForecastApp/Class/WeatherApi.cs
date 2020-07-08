@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace WeatherForecastApp.Class
 {
+    using R = Properties.Resources;
+    /// <summary>
+    /// Klasa odpowiedzialna za połączenie z API pogodowym (api.openweathermap.org)
+    /// </summary>
     public class WeatherApi
     {
-        private static readonly string apiKey = "54443f860b9257ccbab2a8815b5f3e0f";
+        private static readonly string apiKey = R.Weather_API_key;
 
+        /// <summary>
+        /// Zwraca obiekt JSON dla zadanych współrzędnych (prognozy tygodniowej).
+        /// </summary>
         public static async Task<String> LoadDailyForecast(double lat, double lng)
         {
             string urlDaily = $"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lng}&exclude=current,minutely,hourly&appid={apiKey}";
@@ -33,6 +40,9 @@ namespace WeatherForecastApp.Class
             }
         }
 
+        /// <summary>
+        /// Zwraca obiekt JSON dla zadanych współrzędnych (prognozy godzinowej dla aktualnego dnia).
+        /// </summary>
         public static async Task<String> LoadHourlyForecast(double lat, double lng)
         {
             string urlHourly = $"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lng}&exclude=minutely,current,daily&appid={apiKey}";
